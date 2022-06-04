@@ -9,7 +9,8 @@ class Data:
         """This method extracts multi-page instant data."""
         data_list = []
         for page in range(self.pages):
-            raw_data = requests.get(urls.data_url(page)).text
+            url = urls.data_url(page)
+            raw_data = requests.get(url).text
             raw_list = json.loads(raw_data)
             data_list.append(raw_list)
 

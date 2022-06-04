@@ -20,9 +20,10 @@ class Futures_Pairs:
 
         usdt_pairs = df[df["target"] == "USDT"]
         usd_pairs = df[df["target"] == "USD"]
-        target_pairs = pd.concat(
-            [usdt_pairs, usd_pairs]
-        )  # -- Joins two dataframe together!
+
+        # -- Joins two dataframes together!
+        target_pairs = pd.concat([usdt_pairs, usd_pairs])
+
         filtered_coin_list = (
             target_pairs["base"].drop_duplicates().to_list()
         )  # -- drop_duplicates() removes repetitive tokens

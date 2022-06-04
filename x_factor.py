@@ -34,7 +34,7 @@ def x_factor(pages: int):
     x_factor = volume / mktCap
     df["X Factor"] = x_factor
 
-    # --- collects futures pairs
+    # -- collects futures pairs
     futures_pairs = pair_list()
     for _ in df.symbol:
         if _ not in futures_pairs:
@@ -49,7 +49,7 @@ def x_factor(pages: int):
         ]
     ]
 
-    # --- index editing block
+    # -- index editing block
     watchlist.reset_index(inplace=True, drop=True)
     watchlist.index += 1
 
