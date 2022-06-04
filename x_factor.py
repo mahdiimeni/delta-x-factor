@@ -51,3 +51,6 @@ def x_factor(pages: int):
     watchlist.index += 1
 
     return watchlist
+
+
+# TODO - pd.options.display.float_format = "{:.2f}".format
