@@ -1,19 +1,24 @@
 from x_factor import x_factor
 from tabulate import tabulate
 
-pages = input("How many pages do you want to check?! > ")
 
-tabulate_header = [
-    "market_cap_rank",
-    "id",
-    "symbol",
-    "X Factor",
-]
+def main():
+    pages = input("How many pages do you want to check?! > ")
 
-table = x_factor(int(pages))
+    tabulate_header = [
+        "market_cap_rank",
+        "id",
+        "symbol",
+        "X Factor",
+    ]
 
-tabulate_table = tabulate(
-    table, headers=tabulate_header, showindex="always", tablefmt="psql"
-)
+    table = x_factor(int(pages))
 
-print(tabulate_table)
+    tabulate_table = tabulate(
+        table, headers=tabulate_header, showindex="always", tablefmt="psql"
+    )
+
+    return tabulate_table
+
+
+print(main())
