@@ -5,6 +5,7 @@ import futures_pairs as coin
 
 
 def pair_list():
+    """Lists futures pairs by exchange."""
     exchange = exchanges.exchange_selector()
     pair_object = coin.Futures_Pairs(exchange)
     futures_pairs = pair_object.token_collector()
@@ -13,7 +14,7 @@ def pair_list():
 
 
 def x_factor(pages: int):
-
+    """Calculates vol/mktCap & returns a DataFrame."""
     data = dc.Data(pages)
     df = pd.DataFrame(data.instant_data())
     df = df[
@@ -33,8 +34,8 @@ def x_factor(pages: int):
     x_factor = volume / mktCap
     df["X Factor"] = x_factor
 
+    # --- collects futures pairs
     futures_pairs = pair_list()
-
     for _ in df.symbol:
         if _ not in futures_pairs:
             df = df[df["symbol"] != _]
@@ -47,6 +48,8 @@ def x_factor(pages: int):
             "X Factor",
         ]
     ]
+
+    # --- index editing block
     watchlist.reset_index(inplace=True, drop=True)
     watchlist.index += 1
 
