@@ -1,5 +1,3 @@
-Here is the README in Markdown format:
-
 # Crypto X-Factor
 
 Crypto X-Factor is a Python-based tool for tracking and analyzing cryptocurrency market data over time. It focuses on calculating a custom "X-Factor" metric to identify potential "gainer" coins based on trading volume versus market capitalization.
